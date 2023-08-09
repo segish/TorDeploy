@@ -106,7 +106,7 @@ const Login = async (req, res) => {
         res.cookie("accessToken", token, {
             expires: new Date(Date.now() + 1000 * 60 * 2880),  //to expire after 35 minutes
             httpOnly: true,
-            sameSite: 'None',
+            sameSite: 'none',
             secure: true,
         }).status(200).json(others);
     } catch (err) {
