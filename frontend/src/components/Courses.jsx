@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Link,useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import PopUp from './PopUp';
 import { makeRequest } from '../axios';
@@ -96,7 +96,7 @@ const Courses = () => {
   return (
     <div id="cors" className=' flex flex-col text-center  mx-8 space-y-3 mt-40 md:mt-14  '>
       <h1 className='text-4xl font-bold w-full dark:bg-black dark:text-white bg-orange-100 border border-orange-600 rounded-md px-2 py-3'>Courses</h1>
-      <div className='text-xs lg:text-xl flex space-x-4 ml-1 font-bold text-gray-500 w-full justify-center'>
+      <div className='text-xs lg:text-xl flex flex-col md:flex-row space-x-4 ml-1 font-bold text-gray-500 w-full justify-center'>
         {courseCategorie?.map(category => (
           <h3 className='lg:hover:text-orange-600 dark:hover:text-orange-600 cursor-pointer' id={category} onClick={() => handleclick(category)}>{category}</h3>
         ))
@@ -117,7 +117,7 @@ const Courses = () => {
                   </h3>
                   <div className="flex items-center justify-center">
                     <h2 className='text-xl text-center -mt-4 mb-2'>instructor&nbsp;:&nbsp;</h2>
-                    <Link to={"Instructor/"+Course.instructor.split("/:/")[1]}>
+                    <Link to={"Instructor/" + Course.instructor.split("/:/")[1]}>
                       <h2 className='text-xl hover:text-orange-600 dark:hover:text-orange-600 text-center dark:text-white -mt-4 font-bold mb-2'> {Course.instructor.split("/:/")[0]}</h2>
                     </Link>
                   </div>

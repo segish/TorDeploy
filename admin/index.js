@@ -32,7 +32,7 @@ app.use((req, res, next) => {
 });
 app.use(
     cors({
-        origin: "http://localhost:3001",
+        origin: "http://admin.94.130.104.15",
     })
 );
 
