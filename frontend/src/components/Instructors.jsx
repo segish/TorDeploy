@@ -1,6 +1,5 @@
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { Link } from 'react-router-dom';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -52,10 +51,10 @@ const Instructors = () => {
                               <div className="title font-bold py-2">{instuct.firstName + " " + instuct.lastName}</div>
                               <p className='text-center pb-8'>{instuct.description}</p>
                               <div className='flex w-3/4 justify-between'>
-                                <a target="_blank" href={"mailto:"+instuct.email}><div className="rounded-[50%] w-12 h-12 flex justify-center items-center hover:bg-gradient-to-r from-green-700 via-yellow-600 to-red-600 transition duration-500"><EmailOutlinedIcon fontSize='large' className='text-blue-600 z-50 hover:text-white' /></div></a>
-                                <a target="_blank" href={instuct.telegram}><div className="rounded-[50%] w-12 h-12 flex justify-center items-center hover:bg-blue-600 transition duration-500"><TelegramIcon fontSize='large' className='text-blue-600 z-50 hover:text-white'/></div></a>
-                                <a target="_blank" href={instuct.instagram}><div className="rounded-[50%] w-12 h-12 flex justify-center items-center hover:bg-gradient-to-r from-[#93019a] to-red-600 transition duration-500"><InstagramIcon fontSize='large'className='text-red-500 hover:text-white'/></div></a>
-                                <a target="_blank" href={instuct.linkedin}><div className="rounded-[50%] w-12 h-12 flex justify-center items-center hover:border-4 border-blue-600 transition duration-500"><LinkedInIcon fontSize='large' className='text-[#0077b5]'/></div></a>
+                                <a target="_blank" rel="noreferrer" href={"mailto:"+instuct.email}><div className="rounded-[50%] w-12 h-12 flex justify-center items-center hover:bg-gradient-to-r from-green-700 via-yellow-600 to-red-600 transition duration-500"><EmailOutlinedIcon fontSize='large' className='text-blue-600 z-50 hover:text-white' /></div></a>
+                                <a target="_blank" rel="noreferrer" href={instuct.telegram}><div className="rounded-[50%] w-12 h-12 flex justify-center items-center hover:bg-blue-600 transition duration-500"><TelegramIcon fontSize='large' className='text-blue-600 z-50 hover:text-white'/></div></a>
+                                <a target="_blank" rel="noreferrer" href={instuct.instagram}><div className="rounded-[50%] w-12 h-12 flex justify-center items-center hover:bg-gradient-to-r from-[#93019a] to-red-600 transition duration-500"><InstagramIcon fontSize='large'className='text-red-500 hover:text-white'/></div></a>
+                                <a target="_blank" rel="noreferrer" href={instuct.linkedin}><div className="rounded-[50%] w-12 h-12 flex justify-center items-center hover:border-4 border-blue-600 transition duration-500"><LinkedInIcon fontSize='large' className='text-[#0077b5]'/></div></a>
                               </div>
                               {/* <Link to={"/Instructor/" + instuct._id}><button className='px-8 py-3'>More Info</button></Link> */}
                             </div>

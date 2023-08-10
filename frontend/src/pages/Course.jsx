@@ -34,7 +34,7 @@ const Course = () => {
     document.getElementById(activV?.title+activIndex)?.classList.add('text-white')
     document.getElementById(activV?.youtubeLink+activIndex)?.classList.add('dark:bg-slate-800')
     document.getElementById(activV?.title+activIndex)?.classList.add('dark:text-white')
-  },[activV])
+  }, [activV, activIndex])
     
   
   document.getElementById(activV?.youtubeLink+activIndex)?.classList.add('bg-slate-800')
