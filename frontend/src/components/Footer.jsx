@@ -16,10 +16,10 @@ const Footer = () => {
           </div>
           <p className='py-4'>Empowering Ethiopian Youth Through Innovation</p>
           <div className='flex justify-between md:w-[75%] my-6'>
-            <a target="_blank" href="https://www.facebook.com/Neerrdd/"> <FacebookIcon className='hover:text-orange-600 cursor-pointer' fontSize='large' /></a>
-            <a target="_blank" href="https://instagram.com/nerds_center?igshid=MzRlODBiNWFlZA=="> <InstagramIcon className='hover:text-orange-600 cursor-pointer' fontSize='large' /></a>
-            <a target="_blank" href="https://et.linkedin.com/company/nerdet"> <LinkedInIcon className='hover:text-orange-600 cursor-pointer' fontSize='large' /></a>
-            <a target="_blank" href="https://twitter.com/nerd68792965?lang=en"> <TwitterIcon className='hover:text-orange-600 cursor-pointer' fontSize='large' /></a>
+            <a target="_blank" rel="noreferrer" href="https://www.facebook.com/Neerrdd/"> <FacebookIcon className='hover:text-orange-600 cursor-pointer' fontSize='large' /></a>
+            <a target="_blank" rel="noreferrer" href="https://instagram.com/nerds_center?igshid=MzRlODBiNWFlZA=="> <InstagramIcon className='hover:text-orange-600 cursor-pointer' fontSize='large' /></a>
+            <a target="_blank" rel="noreferrer" href="https://et.linkedin.com/company/nerdet"> <LinkedInIcon className='hover:text-orange-600 cursor-pointer' fontSize='large' /></a>
+            <a target="_blank" rel="noreferrer" href="https://twitter.com/nerd68792965?lang=en"> <TwitterIcon className='hover:text-orange-600 cursor-pointer' fontSize='large' /></a>
           </div>
         </div>
         <div className='grid  grid-cols-2 lg:grid-cols-4 gap-6 mt-6'>
