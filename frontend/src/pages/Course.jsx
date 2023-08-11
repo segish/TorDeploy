@@ -62,24 +62,24 @@ const Course = () => {
    )
 
   return (
-    <div className="bg-white dark:bg-black flex flex-col gap-3 justify-between items-center pt-5 md:pt-24 pb-24">
-      <div className=" flex w-full md:w-11/12 h- items-center justify-center p-4 rounded-md border border-orange-500 dark:bg-slate-950 dark:text-white bg-orange-100">
-          <h2 className='text-3xl'>
-            {courses?.title}
-          </h2>
-        </div>
-      <div className="w-full md:w-11/12 flex flex-col md:flex-row gap-4">
-        <div className="flex flex-col overflow-y-auto scrollbar-hidden items-center h-64 md:h-[550px] rounded-md shadow-lg dark:bg-slate-950 bg-slate-200 p-0 md:p-3  dark:border">
-          <div className='h-full w-full md:w-[90%]'>
+    <div className="bg-white dark:bg-black flex flex-col gap-3 justify-between items-center md:p-6 pt-5 md:pt-24 pb-24">
+      <div className=" flex w-full items-center justify-center p-4 rounded-md border border-orange-500 dark:bg-slate-950 dark:text-white bg-orange-100">
+        <h2 className='text-3xl'>
+          {courses?.title}
+        </h2>
+      </div>
+      <div className="w-full flex m-0 flex-col md:flex-row gap-4">
+        <div className="flex flex-col overflow-y-auto scrollbar-hidden md:flex-[6] items-center h-96 md:h-[550px] rounded-md shadow-lg dark:bg-slate-950 bg-slate-200 p-0 md:pt-4  dark:border">
+          <div className='h-full w-full md:w-[95%]'>
             {currentVideo?.type!=="free" && currentUser?.paymentStatus!=="premium"  ? <div className='flex flex-col h-full w-full items-center justify-center'><LockOutlinedIcon fontSize='large' className='text-red-600'/><h1 className='flex text-3xl text-center  items-center justify-center p-4 mt-8 text-red-700'>This chapter content is locked because it is above your clearance level</h1></div>
               : <embed src={currentVideo ? currentVideo?.youtubeLink:""} loop controls className="main-video h-[80%] rounded mt-1 w-full"></embed>}
             {currentVideo?.type !== "free" && currentUser?.paymentStatus !== "premium" ? "" : <h3 className="main-vid-title text-2xl font-bold text-center dark:text-zinc-400 text-zinc-600 py-4">{currentVideo?.title}</h3>}
             {currentVideo?.type !== "free" && currentUser?.paymentStatus !== "premium" ? "" : <h2 className='pb-2 text-center underline text-orange-500'>chapter description</h2>}
-            {currentVideo?.type !== "free" && currentUser?.paymentStatus !== "premium" ?  "" : <h5 className='dark:text-zinc-400'>{currentVideo?.descreption}</h5>}
+            {currentVideo?.type !== "free" && currentUser?.paymentStatus !== "premium" ?  "" : <h5 className='dark:text-zinc-400 m-4'>{currentVideo?.descreption}</h5>}
           </div>
         </div>
 
-        <div className=" flex flex-col items-center video-list-container flex-[2] h-[550px] overflow-y-auto rounded-md shadow-lg dark:bg-slate-950 bg-slate-200 mb-2 lg:p-4 dark:border">
+        <div className=" flex flex-col items-center video-list-container md:flex-[2] h-96 md:h-[550px] overflow-y-auto rounded-md shadow-lg dark:bg-slate-950 bg-slate-200 mb-2 lg:p-4 dark:border">
           <h1 className='text-2xl dark:text-slate-200 font-bold'>Chapters</h1>
           {
             courses?.section.length === 0? <div className='flex w-full h-full justify-center items-center'>

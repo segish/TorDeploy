@@ -26,7 +26,14 @@ const Instructors = () => {
   }
 
   const scrollRight = () => {
-    document.getElementById("content").scrollLeft += 332;
+    // document.getElementById("content").scrollLeft += 332;
+    const content = document.getElementById("content");
+    const isScrollAtMax = content.scrollLeft + content.clientWidth +50 >= content.scrollWidth;
+    content.scrollLeft += 332;
+
+    if (isScrollAtMax) {
+      content.scrollLeft = 0; 
+    }
   }
 
   useEffect(() => {
@@ -45,7 +52,7 @@ const Instructors = () => {
           <div className='w-full'>
             <div className='m-4 md:m-5 mb-[84px] overflow-hidden dark:bg-zinc-900 bg-gray-200 p-4 md:p-5 z-50 rounded-2xl flex justify-center items-center'>
 
-              <div id='content' className='flex overflow-x-auto duration-500 scroll-smooth'>
+              <div id='content' className='flex overflow-x-auto scrollbar-hidden duration-500 scroll-smooth'>
 
                 <div className=" flex">
                   {
