@@ -31,7 +31,7 @@ const Instructors = () => {
   return (
     <>
       <div id='inst' className='dark:bg-black flex flex-col text-center w-full space-y-3 mt-40 md:mt-14 mb-8 '>
-        <h1 className='text-4xl font-bold dark:bg-black dark:text-white bg-orange-100 border border-orange-600 rounded-md mx-5 py-3'>Our Communities</h1>
+        <h1 className='text-4xl font-bold dark:bg-black dark:text-white bg-orange-100 border border-orange-600 rounded-md mx-5 py-3'>Introducing Our Communities</h1>
         <div className='flex text-center  items-center justify-start w-full '>
           <div className='w-full'>
             <div className=' m-5 mb-[84px] overflow-hidden dark:bg-zinc-900 bg-gray-200  p-5 z-50 rounded-2xl flex justify-center items-center'>
