@@ -37,14 +37,6 @@ export default function NavBar({ setRegister }) {
 
   const [theme, setTheme] = useState("dark");
 
-//  useEffect(() => {
-//     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-//       setTheme('dark');
-//     } else {
-//       setTheme('light');
-//     }
-//   }, [])
-
   useEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
@@ -58,7 +50,7 @@ export default function NavBar({ setRegister }) {
   }
 
   return (
-    <div className="w-full h-[80px] top-0 z-50 bg-blue-950 dark:bg-black text-white sticky border-b-2">
+    <div className="w-full h-[80px] top-0 bg-blue-950 dark:bg-black text-white z-[99999999999] sticky border-b-2">
       <div className="flex px-2 items-center justify-between w-full h-full">
         <div className='flex items-center'>
           <div className='bg-logo-image px-2 py-2 w-12 h-12 bg-cover' />

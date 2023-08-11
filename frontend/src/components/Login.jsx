@@ -105,8 +105,8 @@ const Login = ({setRegister,setForgot}) => {
         } 
     }
     return (
-        <div class="sticky top-1/4 ml-2 lg:ml-[35%] opacity-100 ">
-            <div className="absolute w-[380px] h-[488px] inset-[4px] bg-white dark:border dark:bg-black p-[40px] rounded-lg flex flex-col">
+        <div class="sticky top-1/4 lg:ml-[35%] opacity-100 ">
+            <div className="absolute md:w-[380px] h-[488px] inset-[4px] bg-white dark:border dark:bg-black p-[40px] rounded-lg flex flex-col">
                 <div className="flex text-center w-full justify-center">
                 <h2 className="text-black dark:text-white text-xl  text-center tracking-widest flex flex-col">Sign in</h2>
                 <CloseIcon onClick={()=>refreshLogin(false)} className='w-5 dark:text-white absolute right-4 cursor-pointer justify-end hover:text-orange-500 dark:hover:text-orange-500'/> 

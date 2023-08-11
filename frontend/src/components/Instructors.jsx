@@ -6,6 +6,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { makeRequest } from '../axios';
 import { useQuery } from '@tanstack/react-query';
+import { useEffect } from 'react';
 
 const Instructors = () => {
 
@@ -28,13 +29,21 @@ const Instructors = () => {
     document.getElementById("content").scrollLeft += 332;
   }
 
+  useEffect(() => {
+    const interval = setInterval(scrollRight, 4000); // Scroll to the right every 5 seconds
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
   return (
     <>
       <div id='inst' className='dark:bg-black flex flex-col text-center w-full space-y-3 mt-40 md:mt-14 mb-8 '>
         <h1 className='text-4xl font-bold dark:bg-black dark:text-white bg-orange-100 border border-orange-600 rounded-md mx-5 py-3'>Our Communities Members</h1>
         <div className='flex text-center  items-center justify-start w-full '>
           <div className='w-full'>
-            <div className=' m-5 mb-[84px] overflow-hidden dark:bg-zinc-900 bg-gray-200  p-5 z-50 rounded-2xl flex justify-center items-center'>
+            <div className='m-4 md:m-5 mb-[84px] overflow-hidden dark:bg-zinc-900 bg-gray-200 p-4 md:p-5 z-50 rounded-2xl flex justify-center items-center'>
 
               <div id='content' className='flex overflow-x-auto duration-500 scroll-smooth'>
 
@@ -56,7 +65,6 @@ const Instructors = () => {
                                 <a target="_blank" rel="noreferrer" href={instuct.instagram}><div className="rounded-[50%] w-12 h-12 flex justify-center items-center hover:bg-gradient-to-r from-[#93019a] to-red-600 transition duration-500"><InstagramIcon fontSize='large'className='text-red-500 hover:text-white'/></div></a>
                                 <a target="_blank" rel="noreferrer" href={instuct.linkedin}><div className="rounded-[50%] w-12 h-12 flex justify-center items-center hover:border-4 border-blue-600 transition duration-500"><LinkedInIcon fontSize='large' className='text-[#0077b5]'/></div></a>
                               </div>
-                              {/* <Link to={"/Instructor/" + instuct._id}><button className='px-8 py-3'>More Info</button></Link> */}
                             </div>
                           </div>
                         )

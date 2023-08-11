@@ -218,8 +218,8 @@ const Register = ({ setRegister }) => {
 
     return (
         <>
-            <div class="sticky top-8 ml-2 lg:ml-[35%] opacity-100 ">
-                <div className="absolute w-[380px] h-[700px] inset-[4px] bg-white dark:border dark:bg-black p-[40px] rounded-lg flex flex-col" id="otpbox">
+            <div class="sticky top-8 lg:ml-[35%] opacity-100 ">
+                <div className="absolute md:w-[380px] h-[700px] inset-[4px] bg-white dark:border dark:bg-black p-[40px] rounded-lg flex flex-col" id="otpbox">
                     <div className=' ' id="register">
                         <div className="flex text-center w-full justify-center">
                             <h2 className="text-black dark:text-white text-xl  text-center tracking-widest flex flex-col">Sign up</h2>
