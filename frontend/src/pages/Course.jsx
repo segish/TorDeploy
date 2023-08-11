@@ -72,7 +72,7 @@ const Course = () => {
         <div className="flex flex-col overflow-y-auto scrollbar-hidden md:flex-[6] items-center h-96 md:h-[600px] rounded-md shadow-lg dark:bg-slate-950 bg-slate-200 p-0 md:pt-4  dark:border">
           <div className='h-full w-full md:w-[95%]'>
             {currentVideo?.type!=="free" && currentUser?.paymentStatus!=="premium"  ? <div className='flex flex-col h-full w-full items-center justify-center'><LockOutlinedIcon fontSize='large' className='text-red-600'/><h1 className='flex text-3xl text-center  items-center justify-center p-4 mt-8 text-red-700'>This chapter content is locked because it is above your clearance level</h1></div>
-              : <iframe src={currentVideo ? currentVideo?.youtubeLink : ""} allowFullScreen loop controls className="main-video h-[85%] rounded mt-1 w-full"/>}
+              : <iframe title="Embedded YouTube Video" src={currentVideo ? currentVideo?.youtubeLink : ""} allowFullScreen loop controls className="main-video h-[85%] rounded mt-1 w-full"/>}
             {currentVideo?.type !== "free" && currentUser?.paymentStatus !== "premium" ? "" : <h3 className="main-vid-title text-2xl font-bold text-center dark:text-zinc-400 text-zinc-600 py-">{currentVideo?.title}</h3>}
             {currentVideo?.type !== "free" && currentUser?.paymentStatus !== "premium" ? "" : <h2 className='pb-2 text-center underline text-orange-500'>chapter description</h2>}
             {currentVideo?.type !== "free" && currentUser?.paymentStatus !== "premium" ?  "" : <h5 className='dark:text-zinc-400 m-4'>{currentVideo?.descreption}</h5>}
