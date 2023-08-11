@@ -47,13 +47,11 @@ const Instructors = () => {
   return (
     <>
       <div id='inst' className='dark:bg-black flex flex-col text-center w-full space-y-3 mt-40 md:mt-14 mb-8 '>
-        <h1 className='text-4xl font-bold dark:bg-black dark:text-white bg-orange-100 border border-orange-600 rounded-md mx-5 py-3'>Our Communities Members</h1>
+        <h1 className='text-4xl font-bold dark:bg-black dark:text-white bg-orange-100 border border-orange-600 rounded-md mx-5 py-3'>Our Community Members</h1>
         <div className='flex text-center  items-center justify-start w-full '>
           <div className='w-full'>
             <div className='m-4 md:m-5 mb-[84px] overflow-hidden dark:bg-zinc-900 bg-gray-200 p-4 md:p-5 z-50 rounded-2xl flex justify-center items-center'>
-
               <div id='content' className='flex overflow-x-auto scrollbar-hidden duration-500 scroll-smooth'>
-
                 <div className=" flex">
                   {
                     isLoading ? <div className="custom-loader"></div>
@@ -80,8 +78,8 @@ const Instructors = () => {
                 </div>
               </div>
             </div>
-            <div className='relative'>
-              <div className='absolute flex justify-center items-center z-50' style={mystyle}>
+            <div className='relative mb-10'>
+              <div className='absolute pt-10 flex justify-center items-center z-50' style={mystyle}>
                 <button className='m-1 p-2' onClick={scrollLeft}><ArrowBackIcon /></button>
                 <button className='m-1 p-2' onClick={scrollRight}><ArrowForwardIcon /></button>
               </div>
