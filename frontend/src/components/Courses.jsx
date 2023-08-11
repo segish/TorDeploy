@@ -94,7 +94,7 @@ const Courses = () => {
 
 
   return (
-    <div id="cors" className=' flex flex-col text-center  mx-8 space-y-3 mt-40 md:mt-14  '>
+    <div id="cors" className=' flex flex-col text-center  md:mx-8 space-y-3 mt-40 md:mt-14  '>
       <h1 className='text-4xl font-bold w-full dark:bg-black dark:text-white bg-orange-100 border border-orange-600 rounded-md px-2 py-3'>Our Courses</h1>
       <div className='text-xs lg:text-xl flex flex-col md:flex-row space-x-4 ml-1 font-bold text-gray-500 w-full justify-center'>
         {courseCategorie?.map(category => (
@@ -130,8 +130,12 @@ const Courses = () => {
           </div>
         </div>
       </div>
-      <div className='flex  m-4 pt-20'>
-        <div className='h-[200px] w-full bg-gradient-to-r from-orange-700 to-orange-400 rounded-lg object-cover' alt="" />
+      <div className='flex  m-0 md:m-4 pt-20'>
+        <div className='flex items-center justify-center h-[300px] w-full bg-gradient-to-r from-orange-700 to-orange-400 rounded-lg object-cover' alt="">
+          <h1 className='font-bold text-3xl uppercase dark:text-yellow-50 md:mx-2 md:px-4'>Testing jenkins pipline 1</h1>
+          <div className='h-full w-1 bg-blue-800'></div>
+          <h1 className='font-bold text-3xl uppercase dark:text-yellow-50 md:mx-2 md:px-4'>Testing jenkins pipline 2</h1>
+        </div>
       </div>
       {popup && <div className='fixed top-0 bottom-0 w-[100%] z-[999999999999]'><PopUp setPopup={setPopup} /></div>}
     </div>
