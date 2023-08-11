@@ -71,24 +71,26 @@ const Course = () => {
       <div className="w-full md:w-11/12 flex flex-col md:flex-row gap-4">
         <div className="flex flex-col overflow-y-auto items-center flex-[3] md:flex-[4] h-28 md:h-[550px] rounded-md shadow-lg dark:bg-slate-950 bg-slate-200 p-3  dark:border">
           <div className='h-full w-[90%]'>
-            {currentVideo?.type!=="free" && currentUser?.paymentStatus!=="premium"  ? <div className='flex flex-col h-full w-full items-center justify-center'><LockOutlinedIcon fontSize='large' className='text-red-600'/><h1 className='flex text-3xl text-center  items-center justify-center p-4 mt-8 text-red-700'>This chapter content is locked because it is above your clearance level</h1></div>:<embed src={currentVideo?.youtubeLink} loop controls className="main-video h-[80%] rounded mt-1 w-full"></embed>}
-            {currentVideo?.type==="free" ? <h3 className="main-vid-title text-xl  dark:text-zinc-400 text-zinc-600 py-4">{currentVideo?.title}</h3>:""}
-            {currentVideo?.type==="free" ?  <h2 className='pb-2  text-orange-500'>chapter description</h2>:""}
-           {currentVideo?.type==="free" ?  <h5 className='dark:text-zinc-400'>{currentVideo?.descreption}</h5>:""}
+            {currentVideo?.type!=="free" && currentUser?.paymentStatus!=="premium"  ? <div className='flex flex-col h-full w-full items-center justify-center'><LockOutlinedIcon fontSize='large' className='text-red-600'/><h1 className='flex text-3xl text-center  items-center justify-center p-4 mt-8 text-red-700'>This chapter content is locked because it is above your clearance level</h1></div>
+              : <embed src={currentVideo ? currentVideo?.youtubeLink:""} loop controls className="main-video h-[80%] rounded mt-1 w-full"></embed>}
+            {currentVideo?.type !== "free" && currentUser?.paymentStatus !== "premium" ? "" : <h3 className="main-vid-title text-2xl font-bold text-center dark:text-zinc-400 text-zinc-600 py-4">{currentVideo?.title}</h3>}
+            {currentVideo?.type !== "free" && currentUser?.paymentStatus !== "premium" ? "" : <h2 className='pb-2 text-center underline text-orange-500'>chapter description</h2>}
+            {currentVideo?.type !== "free" && currentUser?.paymentStatus !== "premium" ?  "" : <h5 className='dark:text-zinc-400'>{currentVideo?.descreption}</h5>}
           </div>
         </div>
 
         <div className=" flex flex-col items-center video-list-container flex-[2] h-[550px] overflow-y-auto rounded-md shadow-lg dark:bg-slate-950 bg-slate-200 mb-2 lg:p-4 dark:border">
+          <h1 className='text-2xl dark:text-slate-200 font-bold'>Chapters</h1>
           {
             courses?.section.length === 0? <div className='flex w-full h-full justify-center items-center'>
           <p className='text-red-600 text-center text-3xl'>
             no chapters  available yet
             </p> </div>
+            
           :courses?.section.map((video, index) => (
             <div id={video.youtubeLink+index} className="flex w-full  items-center gap-4 p-4 cursor-pointer rounded-md mb-3 last:mb-0" onClick={() => handleclicks(video,index)}>
-              <embed src={video.youtubeLink} class="list-video w-24 h-16 rounded-md"></embed> 
               <h3 id={video.title+index} className="text-base text-slate-900 dark:text-zinc-400">{video.title} {video.type!=="free" && currentUser?.paymentStatus!=="premium" ? <LockOutlinedIcon/>: " " }</h3>
-            </div>
+              </div>
           ))}
         </div>
         
