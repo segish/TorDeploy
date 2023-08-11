@@ -35,15 +35,15 @@ export default function NavBar({ setRegister }) {
 
   }
 
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
 
- useEffect(() => {
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setTheme('dark');
-    } else {
-      setTheme('light');
-    }
-  }, [])
+//  useEffect(() => {
+//     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+//       setTheme('dark');
+//     } else {
+//       setTheme('light');
+//     }
+//   }, [])
 
   useEffect(() => {
     if (theme === "dark") {
