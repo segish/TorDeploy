@@ -162,8 +162,8 @@ const Register = ({ setRegister }) => {
             loader.classList.add('visible')
             try {
                 const res = await makeRequest.post("auth/otp", inputs);
+                console.log(err)
                 if (res) {
-
                     const register = document.getElementById('register');
                     const otp = document.getElementById('otp');
                     register.className = 'register hidden';
@@ -173,6 +173,7 @@ const Register = ({ setRegister }) => {
                 }
             } catch (err) {
                 setErr(err.response.data);
+                console.log(err)
             }
         }
     }

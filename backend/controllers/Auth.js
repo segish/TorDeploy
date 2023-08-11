@@ -36,7 +36,7 @@ const Register = async (req, res) => {
 //sending OTP to verify email address
 const Otp = (req, res) => {
     var otp = Math.floor(1000 + Math.random() * 9000);
-    const { name, email } = req.body;
+    const { firstName, email } = req.body;
     let config = {
         service: 'gmail',
         auth: {
@@ -57,7 +57,7 @@ const Otp = (req, res) => {
 
     let response = {
         body: {
-            name: name,
+            name: firstName,
             intro: "your OTP has arrived ",
             table: {
                 data: [
