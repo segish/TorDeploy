@@ -29,7 +29,7 @@ const MenuItems = ({ showMenu, active, setRegister }) => {
 
       <li className='border-b-2 border-zinc-500 w-full'><a href="/" className=' hover:text-orange-500  cursor-pointer'>Home</a></li>
       <li className='border-b-2 border-zinc-500 w-full'><a href="/#cors" className=' hover:text-orange-500 cursor-pointer'>Courses</a></li>
-      <li className='border-b-2 border-zinc-500 w-full'><a href="/#inst" className=' hover:text-orange-500 cursor-pointer'>Instructors</a></li>
+      <li className='border-b-2 border-zinc-500 w-full'><a href="/#inst" className=' hover:text-orange-500 cursor-pointer'>Our Communities</a></li>
       <li className='border-b-2 border-zinc-500 w-full'><Link to="/AboutUs" className=' hover:text-orange-500'>About Us</Link></li>
       <div className='flex flex-col my-4'>
         {currentUser ?

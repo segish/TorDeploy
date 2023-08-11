@@ -67,7 +67,7 @@ export default function NavBar({ setRegister }) {
           <ul className='hidden lg:flex uppercase px-4'>
             <li><a href="/" className=' hover:text-orange-500  cursor-pointer'>Home</a></li>
             <li><a href="/#cors" className=' hover:text-orange-500 cursor-pointer'>Courses</a></li> 
-            <li><a href="/#inst" className=' hover:text-orange-500 cursor-pointer'>Instructors</a></li>
+            <li><a href="/#inst" className=' hover:text-orange-500 cursor-pointer'>Our Communities</a></li>
             <li><Link to="/AboutUs" className=' hover:text-orange-500'>About Us</Link></li>
 
 
