@@ -107,7 +107,7 @@ const Courses = () => {
           <div className='flex gap-4 justify-center items-center w-full'>
             <div className='w-screen hidden gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' id='gridview'>
               {response?.map(Course => (
-                <div className='text-left flex flex-col border border-gray-300 p-8 rounded-md shadow-md relative'>
+                <div className='text-left w-[99%] flex flex-col border border-gray-300 p-8 rounded-md shadow-md relative'>
                   <h2 className='text-2xl text-center -mt-4 font-bold mb-2 underline'>{Course.title}</h2>
                   <h6 className='absolute top-0 right-0 text-xs dark:bg-white bg-orange-300 text-red-600 rounded-full m-1 p-1 flex font-bold'>{Course.type}</h6>
                   <img src={Course.banner} alt="" className={Course.banner && 'h-36 rounded-md'} />
