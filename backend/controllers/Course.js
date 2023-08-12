@@ -30,10 +30,10 @@ const GetByCatgory = async (req, res) => {
         const course = await Course.find({ category: req.params.category });
 
         const filteredCourse = course.map(obj => {
-            const { section, updatedAt, ...rest } = obj._doc; 
+            const { section, updatedAt, ...rest } = obj._doc;
             return rest;
-          });
-          
+        });
+
         res.status(200).json(filteredCourse);
     } catch (err) {
         res.status(500).json("something went wrong");
@@ -52,7 +52,6 @@ const GetById = async (req, res) => {
             const currentUser = await User.findById(userInfo.id);
             if (!currentUser) return res.status(403).json("You must login first")
             const course = await Course.findById(req.params.id);
-            if (currentUser.userType === "gust" && course.type !== "free") return res.status(403).json("You are not allowed for this course");
             res.status(200).json(course);
         } catch (err) {
             res.status(500).json("something went wrong");
