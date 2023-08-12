@@ -51,7 +51,8 @@ const GetById = async (req, res) => {
         try {
             const currentUser = await User.findById(userInfo.id);
             if (!currentUser) return res.status(403).json("You must login first")
-            const course = await Course.findById(req.params.id);
+            const course = await Course.findById(req.params.id); 
+            if (currentUser.userType === "gust" && course.type !== "free") return res.status(403).json("You are not allowed for this course");
             res.status(200).json(course);
         } catch (err) {
             res.status(500).json("something went wrong");
