@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import { makeRequest } from '../axios';
+// import { useEffect, useState } from 'react';
+// import { useLocation } from 'react-router-dom';
+// import { makeRequest } from '../axios';
 const InstructDetail = () => {
 
     // const id = useLocation().pathname.split("/")[2]
@@ -41,7 +41,7 @@ const InstructDetail = () => {
                             <div className="h-[1px] w-full bg-slate-400 rounded-sm"></div>
 
                             <div className="flex md:gap-32  flex-col md:flex-row lg:w-10/12 text-lg m-2">
-                                <span>Email :</span><a target="_blank" rel="noreferrer" className='text-orange-500 hover:text-blue-700' href={"mailto:" + "instructor.email"}><span>{"instructor?.email"}</span></a>
+                                <span>Email :</span><a target="_blank" rel="noreferrer" className='text-orange-500 hover:text-blue-700' href={"instructor.email"}><span>{"instructor?.email"}</span></a>
                             </div>
                             <div className="h-[1px] w-full bg-slate-400 rounded-sm"></div>
                             <div className="flex md:gap-24  flex-col md:flex-row lg:w-10/12 text-lg m-2">
