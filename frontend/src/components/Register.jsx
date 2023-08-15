@@ -12,16 +12,12 @@ const Register = ({ setRegister }) => {
 
     const [err, setErr] = useState(null)
 
-    function validateEmail(email) {
-        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return regex.test(email);
-    }
-
 
     const [inputs, setInputs] = useState({
         username: "",
         password: "",
         email: "",
+        phone: "",
         firstName: "",
         lastName: "",
         otp: null
@@ -38,19 +34,19 @@ const Register = ({ setRegister }) => {
 
         const usernameControler = document.getElementById('usernameControler');
         const passwordControler = document.getElementById('passwordControler');
-        const emailControler = document.getElementById('emailControler');
+        const phoneControler = document.getElementById('phoneControler')
         const firstNameControler = document.getElementById('firstNameControler');
         const lastNameControler = document.getElementById('lastNameControler');
         const username = document.getElementById('username');
         const password = document.getElementById('password');
-        const email = document.getElementById('email');
+        const phone = document.getElementById('phone');
         const firstName = document.getElementById('firstName');
         const lastName = document.getElementById('lastName');
 
 
         const usernameValue = username.value.trim();
         const passwordValue = password.value;
-        const emailValue = email.value.trim();
+        const phoneValue = phone.value.trim();
         const firstNameValue = firstName.value.trim();
         const lastNameValue = lastName.value.trim();
 
@@ -78,20 +74,20 @@ const Register = ({ setRegister }) => {
             passwordControler.classList.remove('error')
             passwordControler.classList.add('success')
         }
-        if (emailValue === '' || emailValue === null) {
-            emailControler.classList.remove('success')
-            emailControler.classList.add('error')
-            const h63 = emailControler.querySelector('h6');
-            h63.innerText = "Please enter your email"
-        } else if (!validateEmail(emailValue)) {
-            emailControler.classList.remove('success')
-            emailControler.classList.add('error')
-            const h63 = emailControler.querySelector('h6');
-            h63.innerText = "Please enter valid email"
+        if (phoneValue === '' || phoneValue === null) {
+            phoneControler.classList.remove('success')
+            phoneControler.classList.add('error')
+            const h64 = phoneControler.querySelector('h6');
+            h64.innerText = "Please enter your phone"
+        } else if (!/^(\+2519|09)[\d]{8}$/.test(phoneValue)) {
+            phoneControler.classList.remove('success')
+            phoneControler.classList.add('error')
+            const h64 = phoneControler.querySelector('h6');
+            h64.innerText = "Please enter valid phone number"
         }
         else {
-            emailControler.classList.remove('error')
-            emailControler.classList.add('success')
+            phoneControler.classList.remove('error')
+            phoneControler.classList.add('success')
         }
         if (firstNameValue === '' || firstNameValue === null) {
             firstNameControler.classList.remove('success')
@@ -113,7 +109,7 @@ const Register = ({ setRegister }) => {
         setErr(null)
         const usernameControler = document.getElementById('usernameControler')
         const passwordControler = document.getElementById('passwordControler')
-        const emailControler = document.getElementById('emailControler')
+        const phoneControler = document.getElementById('phoneControler')
         const firstNameControler = document.getElementById('firstNameControler')
         const lastNameControler = document.getElementById('lastNameControler')
         if (inputs.username === '') {
@@ -138,11 +134,16 @@ const Register = ({ setRegister }) => {
             passwordControler.classList.remove('errors')
             passwordControler.classList.add('success');
         }
-        if (inputs.email === '') {
-            emailControler.classList.add('error');
+        if (inputs.phone === '') {
+            phoneControler.classList.add('error');
+        } else if (!/^(\+2519|09)[\d]{8}$/.test(inputs.phone)) {
+            phoneControler.classList.remove('success')
+            phoneControler.classList.add('error')
+            const h64 = phoneControler.querySelector('h6');
+            h64.innerText = "Please enter valid phone number"
         } else {
-            emailControler.classList.remove('error');
-            emailControler.classList.add('success');
+            phoneControler.classList.remove('error');
+            phoneControler.classList.add('success');
         }
         if (inputs.firstName === '') {
             firstNameControler.classList.add('error');
@@ -162,7 +163,6 @@ const Register = ({ setRegister }) => {
             loader.classList.add('visible')
             try {
                 const res = await makeRequest.post("auth/otp", inputs);
-                console.log(res)
                 if (res) {
                     const register = document.getElementById('register');
                     const otp = document.getElementById('otp');
@@ -248,6 +248,14 @@ const Register = ({ setRegister }) => {
                             <i className="absolute left-0 bottom-0 w-full h-[2px] bg-orange-500 rounded overflow-hidden duration-500 pointer-events-none" id="i3"></i>
                             <ErrorOutlineOutlinedIcon className="erroricon absolute right-[2px] bottom-2 text-red-600 invisible" />
                             <h6 className="absolute left-0 top-12 bottom-[-15px] w-full text-red-600 invisible">Please enter your email</h6>
+                        </div>
+                        <div class="relative w-[300px] mt-9" id="phoneControler">
+                            <input className="relative w-full p-5 py-3 px-3 bg-transparent outline-none border-none tracking-wider text-black z-10 rounded h-11 mt-2"
+                                type="text" name="phone" id="phone" onChange={checkInputs}/>
+                            <span className="absolute left-0 pointer-events-none text-[#8f8f8f] p-5 py-5 px-0 text-base tracking-wider duration-500">phone</span>
+                            <i className="absolute left-0 bottom-0 w-full h-[2px] bg-orange-500 rounded overflow-hidden duration-500 pointer-events-none" id="i3"></i>
+                            <ErrorOutlineOutlinedIcon className="erroricon absolute right-[2px] bottom-2 text-red-600 invisible" />
+                            <h6 className="absolute left-0 top-12 bottom-[-15px] w-full text-red-600 invisible">Please enter your phone</h6>
                         </div>
                         <div class="relative w-[300px] mt-9" id="firstNameControler">
                             <input className="relative w-full p-5 py-3 px-3 bg-transparent outline-none border-none tracking-wider text-black z-10 rounded h-11 mt-2"
