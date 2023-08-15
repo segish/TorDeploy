@@ -79,59 +79,59 @@ const SingleInstruct = () => {
                         <p className="md:text-5xl text-xl text-gray-600">Instructor's Profile</p>
                     </div>
                 </div>
-                <div className="overflow-hidden shadow-sm rounded-md shadow-black p-4 md:p-10  mx-12 m-6 text-gray-600 flex-col justify-between gap-3  dark:shadow-lg dark:shadow-slate-800">
+                <div className="overflow-hidden shadow-sm rounded-md shadow-black p-4 md:p-10  md:mx-12 md:m-6 text-gray-600 flex-col justify-between gap-3  dark:shadow-lg dark:shadow-slate-800">
                     <div className="items-center">
-                        <div className="py-5 gap-16 flex items-center">
-                            <span>First Name :</span>
-                            <span className="italic p-2 text-xl border-dotted border-2 border-gray-800  sm:w[300px] w-8/12 rounded-md">
+                        <div className="md:pb-10 pb-5 md:gap-16 flex items-center flex-col md:flex-row">
+                            <span className="text-lg pb-2 md:pb-0 w-full md:w-fit">First Name </span>
+                            <span className="italic p-2 text-xl border-dotted border-2 border-gray-800  sm:w[300px] w-full rounded-md">
                                 <input name="firstName" className="dark:bg-slate-700 h-full w-full rounded-md p-2 dark:text-gray-200" defaultValue={newInstruct?.firstName} type="text" onChange={handleinputchange} />
                             </span>
                         </div>
-                        <div className="py-5 gap-16 flex items-center">
-                            <span>Last Name :</span>
-                            <span className="italic p-2 text-xl border-dotted border-2 border-gray-800  sm:w[300px] w-8/12 rounded-md">
+                        <div className="md:pb-10 pb-5 md:gap-16 flex items-center flex-col md:flex-row">
+                            <span className="text-lg pb-2 md:pb-0 w-full md:w-fit">Last Name </span>
+                            <span className="italic p-2 text-xl border-dotted border-2 border-gray-800  sm:w[300px] w-full rounded-md">
                                 <input name="lastName" className="dark:bg-slate-700 h-full w-full rounded-md p-2 dark:text-gray-200" defaultValue={newInstruct?.lastName} type="text" onChange={handleinputchange} />
                             </span>
                         </div>
-                        <div className="py-5 gap-20 flex items-center">
-                            <span>Email :</span>
-                            <span className="italic p-2 text-xl border-dotted border-2 border-gray-800  sm:w[300px] w-8/12 rounded-md">
+                        <div className="md:pb-10 pb-5 md:gap-20 flex items-center flex-col md:flex-row">
+                            <span className="text-lg pb-2 md:pb-0 w-full md:w-fit">Email </span>
+                            <span className="italic p-2 text-xl border-dotted border-2 border-gray-800  sm:w[300px] w-full rounded-md">
                                 <input name="email" className="dark:bg-slate-700 h-full w-full rounded-md p-2 dark:text-gray-200" defaultValue={newInstruct?.email} type="text" onChange={handleinputchange} />
                             </span>
                         </div>
-                        <div className="py-5 gap-20 flex items-center">
-                            <span>Phone  -:</span>
-                            <span className="italic p-2 text-xl border-dotted border-2 border-gray-800  sm:w[300px] w-8/12 rounded-md">
+                        <div className="md:pb-10 pb-5 md:gap-20 flex items-center flex-col md:flex-row">
+                            <span className="text-lg pb-2 md:pb-0 w-full md:w-fit">Phone </span>
+                            <span className="italic p-2 text-xl border-dotted border-2 border-gray-800  sm:w[300px] w-full rounded-md">
                                 <input name="phone" className="dark:bg-slate-700 h-full w-full rounded-md p-2 dark:text-gray-200" defaultValue={newInstruct?.phone} type="text" onChange={handleinputchange} />
                             </span>
                         </div>
-                        <div className="py-5 gap-12 flex items-center">
-                            <span>Description  -:</span>
-                            <span className="italic p-2 text-xl border-dotted border-2 border-gray-800  sm:w[300px] w-8/12 rounded-md">
+                        <div className="md:pb-10 pb-5 md:gap-12 flex items-center flex-col md:flex-row">
+                            <span className="text-lg pb-2 md:pb-0 w-full md:w-fit">Description </span>
+                            <span className="italic p-2 text-xl border-dotted border-2 border-gray-800  sm:w[300px] w-full rounded-md">
                                 <textarea name="description" className="dark:bg-slate-700 h-full w-full rounded-md p-2 dark:text-gray-200" defaultValue={newInstruct?.description} type="text" onChange={handleinputchange} />
                             </span>
                         </div>
-                        <div className="py-5 gap-16 flex items-center">
-                            <span>Telegram  -:</span>
-                            <span className="italic p-2 text-xl border-dotted border-2 border-gray-800  sm:w[300px] w-8/12 rounded-md">
+                        <div className="md:pb-10 pb-5 md:gap-16 flex items-center flex-col md:flex-row">
+                            <span className="text-lg pb-2 md:pb-0 w-full md:w-fit">Telegram </span>
+                            <span className="italic p-2 text-xl border-dotted border-2 border-gray-800  sm:w[300px] w-full rounded-md">
                                 <input name="telegram" className="dark:bg-slate-700 h-full w-full rounded-md p-2 dark:text-gray-200" defaultValue={newInstruct?.telegram} type="text" onChange={handleinputchange} />
                             </span>
                         </div>
-                        <div className="py-5 gap-16 flex items-center">
-                            <span>Instagram  -:</span>
-                            <span className="italic p-2 text-xl border-dotted border-2 border-gray-800  sm:w[300px] w-8/12 rounded-md">
+                        <div className="md:pb-10 pb-5 md:gap-16 flex items-center flex-col md:flex-row">
+                            <span className="text-lg pb-2 md:pb-0 w-full md:w-fit">Instagram </span>
+                            <span className="italic p-2 text-xl border-dotted border-2 border-gray-800  sm:w[300px] w-full rounded-md">
                                 <input name="instagram" className="dark:bg-slate-700 h-full w-full rounded-md p-2 dark:text-gray-200" defaultValue={newInstruct?.instagram} type="text" onChange={handleinputchange} />
                             </span>
                         </div>
-                        <div className="py-5 gap-20 flex items-center">
-                            <span>likedin  -:</span>
-                            <span className="italic p-2 text-xl border-dotted border-2 border-gray-800  sm:w[300px] w-8/12 rounded-md">
+                        <div className="md:pb-10 pb-5 md:gap-20 flex items-center flex-col md:flex-row">
+                            <span className="text-lg pb-2 md:pb-0 w-full md:w-fit">likedin </span>
+                            <span className="italic p-2 text-xl border-dotted border-2 border-gray-800  sm:w[300px] w-full rounded-md">
                                 <input name="phone" className="dark:bg-slate-700 h-full w-full rounded-md p-2 dark:text-gray-200" defaultValue={newInstruct?.likedin} type="text" onChange={handleinputchange} />
                             </span>
                         </div>
-                        <div className="py-5 gap-16 flex items-center">
-                            <span>profession  -:</span>
-                            <span className="italic p-2 text-xl border-dotted border-2 border-gray-800  sm:w[300px] w-8/12 rounded-md">
+                        <div className="md:pb-10 pb-5 md:gap-16 flex items-center flex-col md:flex-row">
+                            <span className="text-lg pb-2 md:pb-0 w-full md:w-fit">profession </span>
+                            <span className="italic p-2 text-xl border-dotted border-2 border-gray-800  sm:w[300px] w-full rounded-md">
                                 <input name="profession" className="dark:bg-slate-700 h-full w-full rounded-md p-2 dark:text-gray-200" defaultValue={newInstruct?.profession} type="text" onChange={handleinputchange} />
                             </span>
                             <button className="border-2 border-purple-600 p-3" onClick={() => setShowPopup(true)}>update</button>

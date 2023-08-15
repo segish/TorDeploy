@@ -18,8 +18,8 @@ const InstructDetail = () => {
         fetchData();
     }, [id]);
     return (
-        <div className='relative flex items-center justify-center dark:bg-black bg-white'>
-            <div className="w-full md:w-3/4 shadow-2xl p-0 lg:p-4  dark:bg-slate-950 dark:text-zinc-400 bg-zinc-200  md:dark:border rounded-lg">
+        <div className='relative flex items-center justify-center md:my-12 dark:bg-black bg-white'>
+            <div className="w-full md:w-3/4 shadow-lg p-0 lg:p-4  dark:bg-slate-950 dark:text-zinc-400 bg-gray-100  md:dark:border">
                 <div className="flex flex-col justify-between gap-4">
                     <div className="flex  w-full pt-4 justify-center">
                         <img className="w-[200px] h-[200px]  object-cover rounded-full" src={instructor?.profile} alt="" />
