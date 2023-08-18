@@ -9,6 +9,7 @@ import Instructors from '../components/Instructors';
 
 
 const Home = () => {
+  document.title = "NERD E-Leraning"
   return (
     <>
     <Hero/>

@@ -6,7 +6,8 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import {useQuery} from "@tanstack/react-query";
 
 const Course = () => {
- 
+  document.title = "Course Tutorial"
+
  const {currentUser} = useContext(AuthContext)
  const courseid = useLocation().pathname.split('/')[2]
   const [currentVideo, setCurrentVideo] = useState();

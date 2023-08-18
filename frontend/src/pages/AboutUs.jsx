@@ -2,6 +2,7 @@ import React from 'react'
 import sImg from '../components/images/NERDLogo1.png'
 
 const AboutUs = () => {
+  document.title = "About Us"
   return (
 
     <div className='p-10 mx-4  mb-10 dark:text-zinc-400 dark:bg-slate-950'>

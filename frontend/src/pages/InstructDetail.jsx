@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { makeRequest } from '../axios';
 const InstructDetail = () => {
-
+    document.title="Instructor's details"
     const id = useLocation().pathname.split("/")[2]
     const [instructor, setInstructor] = useState([])
 
