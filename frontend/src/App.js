@@ -46,7 +46,7 @@ const Layout = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="w-full h-full dark:bg-black overflow-x-clip">
+      <div className="w-full h-full dark:bg-black overflow-x-clip scroll-smooth">
         <NavBar setRegister={setRegister} />
         {loginPage && <div onClick={handle} ref={parentRef} className='fixed top-0 bottom-0 w-[100%] z-[999999999999] bg-black bg-opacity-80'><Login setRegister={setRegister} setForgot={setForgot} style={{ opacity: "1" }} /></div>}
         {register && <div onClick={handle} ref={parentRef} className='fixed top-0 bottom-0 w-[100%] z-[999999999999] bg-black bg-opacity-80'><Register setRegister={setRegister} style={{ opacity: "1" }} /></div>}

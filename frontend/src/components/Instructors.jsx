@@ -4,9 +4,11 @@ import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import PauseOutlinedIcon from '@mui/icons-material/PauseOutlined';
+import PlayArrowOutlinedIcon from '@mui/icons-material/PlayArrowOutlined';
 import { makeRequest } from '../axios';
 import { useQuery } from '@tanstack/react-query';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const Instructors = () => {
 
@@ -16,9 +18,10 @@ const Instructors = () => {
     })
   )
 
+  const [pause, setpause] = useState(true)
 
   const mystyle = {
-    left: "calc(50vw - 50px)",
+    left: "calc(50vw - 72px)",
     top: "-53px"
   }
   const scrollLeft = () => {
@@ -26,7 +29,6 @@ const Instructors = () => {
   }
 
   const scrollRight = () => {
-    // document.getElementById("content").scrollLeft += 332;
     const content = document.getElementById("content");
     const isScrollAtMax = content.scrollLeft + content.clientWidth +50 >= content.scrollWidth;
     content.scrollLeft += 332;
@@ -37,12 +39,12 @@ const Instructors = () => {
   }
 
   useEffect(() => {
-    const interval = setInterval(scrollRight, 4000); // Scroll to the right every 5 seconds
+    const interval = setInterval(pause&&scrollRight, 4000); // Scroll to the right every 5 seconds
 
     return () => {
       clearInterval(interval);
     };
-  }, []);
+  }, [pause]);
 
   return (
     <>
@@ -81,6 +83,7 @@ const Instructors = () => {
             <div className='relative mb-10'>
               <div className='absolute md:pt-10 flex justify-center items-center z-50' style={mystyle}>
                 <button className='m-1 p-2' onClick={scrollLeft}><ArrowBackIcon /></button>
+                <button className='m-1 p-2' onClick={() => setpause(!pause)}>{pause ? <PauseOutlinedIcon /> :<PlayArrowOutlinedIcon />}</button>
                 <button className='m-1 p-2' onClick={scrollRight}><ArrowForwardIcon /></button>
               </div>
             </div></div>
