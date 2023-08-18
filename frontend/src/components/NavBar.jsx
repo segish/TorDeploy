@@ -33,7 +33,6 @@ export default function NavBar({ setRegister }) {
     if (element) {
       setCourse(false)
       setComunity(false)
-      // setHome(false)
       target === "cors" ? setCourse(true) : setComunity(true)
       const elementPosition = element?.getBoundingClientRect().top;
       window.scrollTo({

@@ -6,7 +6,7 @@ const Hero = () => {
   const { currentUser } = useContext(AuthContext)
   const { refreshLogin } = useContext(AuthContext)
   return (
-    <div id="home" className='w-full h-[400px] bg-gradient-to-r from-orange-800  flex flex-col justify-between'>
+    <div id="home" className='w-full h-[70%] bg-gradient-to-r from-orange-800  flex flex-col justify-between'>
       <div className='flex flex-col md:w-[600px] '>
         <div className='flex flex-col rounded-lg bg-white dark:bg-black justify-center px-6 py-8 my-11 mx-12'>
           <p className='text-2xl font-bold dark:text-white text-center px-10 py-2'>Welcome to NERD's educational program.</p>
