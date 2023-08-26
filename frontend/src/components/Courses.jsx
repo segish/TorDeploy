@@ -76,7 +76,7 @@ const Courses = () => {
       console.log("you must login")
       refreshLogin(true)
     } else {
-      navigate("/course/" + courseId)
+      navigate("/course?id=" + courseId)
     }
   }
 
@@ -117,7 +117,7 @@ const Courses = () => {
                   </h3>
                   <div className="flex items-center justify-center">
                     <h2 className='text-xl text-center -mt-4 mb-2'>Instructor&nbsp;:-&nbsp;</h2>
-                    <Link to={"Instructor/" + Course.instructor.split("/:/")[1]}>
+                    <Link to={"Instructor?id=" + Course.instructor.split("/:/")[1]}>
                       <h2 className='text-xl hover:text-orange-600 dark:hover:text-orange-600 text-center dark:text-white -mt-4 font-bold mb-2'> {Course.instructor.split("/:/")[0]}</h2>
                     </Link>
                   </div>

@@ -21,7 +21,9 @@ const Chapters = () => {
 
   const [Addchapters, setAddchapters] = useState([])
 
-  const courseID = useLocation().pathname.split("/")[2]
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const courseID = searchParams.get('id');
 
   const [showConfPopup, setShowConfPopup] = useState(false);
   const [showConfPopupdelete, setShowConfPopupdelete] = useState(false);

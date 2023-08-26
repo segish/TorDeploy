@@ -76,7 +76,7 @@ function App() {
           element: <List />
         },
         {
-          path: "/students/:studentId",
+          path: "/students",
           element: <SingleStudents />
         },
         {
@@ -88,7 +88,7 @@ function App() {
           element: <Courseslist />
         },
         {
-          path: "/courses/:courseid",
+          path: "/courses",
           element: <Chapters />
         },
         {
@@ -100,7 +100,7 @@ function App() {
           element: <InstructorList/>
         },
         {
-          path: "/instructors/:id",
+          path: "/instructors",
           element: <SingleInstructors/>
         },
         {

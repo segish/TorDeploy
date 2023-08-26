@@ -67,7 +67,7 @@ const Courseslist = () => {
     })
   )
 
-  const { data:instructs } = useQuery(["instructors"], () =>
+  const { data: instructs } = useQuery(["instructors"], () =>
     makeRequest.get("instructors/getall").then((res) => {
       return res.data;
     })
@@ -155,7 +155,7 @@ const Courseslist = () => {
                           <option className="dark:bg-slate-900 text-lg text-center" value="premium">premium</option>
                         </select>
                       </TableCell>
-                      <TableCell className=' dark:text-gray-200 dark:bg-slate-950 '><Link to={"/courses/" + row._id}><div className="" > +<EditIcon className="w-3 h-1" /> {row.section.length}</div></Link></TableCell>
+                      <TableCell className=' dark:text-gray-200 dark:bg-slate-950 '><Link to={"/courses?id=" + row._id}><div className="" > +<EditIcon className="w-3 h-1" /> {row.section.length}</div></Link></TableCell>
                       <TableCell className=' dark:text-gray-200 dark:bg-slate-950  '><button className="border-2 rounded-md border-purple-600 p-3" onClick={(e) => showpopupUpdate(e, index)}>update</button> </TableCell>
                       <TableCell className=' dark:text-gray-200 dark:bg-slate-950  '><button className="border-2 rounded-md border-red-600 p-3" onClick={(e) => showConfirmationPopup(e, row._id)} >delete</button> </TableCell>
                     </TableRow>

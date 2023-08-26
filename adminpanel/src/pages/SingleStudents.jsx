@@ -11,13 +11,14 @@ const SingleStudents = () => {
 
     const queryClient = useQueryClient();
 
-    const userId = useLocation().pathname.split("/")[2]
-
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
+    const userId = searchParams.get('id');
 
     const [student, setStudent] = useState();
 
     const [newstudent, setnewStudent] = useState();
-    
+
     const [showPopup, setShowPopup] = useState(false);
     const [showConfPopup, setShowConfPopup] = useState(false)
 

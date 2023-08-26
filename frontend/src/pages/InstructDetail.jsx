@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { makeRequest } from '../axios';
 const InstructDetail = () => {
-    document.title="Instructor's details"
-    const id = useLocation().pathname.split("/")[2]
+    document.title = "Instructor's details"
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
+    const id = searchParams.get('id');
     const [instructor, setInstructor] = useState([])
 
     useEffect(() => {
