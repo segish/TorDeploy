@@ -30,16 +30,16 @@ const Instructors = () => {
 
   const scrollRight = () => {
     const content = document.getElementById("content");
-    const isScrollAtMax = content.scrollLeft + content.clientWidth +50 >= content.scrollWidth;
+    const isScrollAtMax = content.scrollLeft + content.clientWidth + 50 >= content.scrollWidth;
     content.scrollLeft += 332;
 
     if (isScrollAtMax) {
-      content.scrollLeft = 0; 
+      content.scrollLeft = 0;
     }
   }
 
   useEffect(() => {
-    const interval = setInterval(pause&&scrollRight, 4000); // Scroll to the right every 5 seconds
+    const interval = setInterval(pause && scrollRight, 4000); // Scroll to the right every 5 seconds
 
     return () => {
       clearInterval(interval);
@@ -67,23 +67,23 @@ const Instructors = () => {
                               <div className="title font-bold py-2">{instuct.firstName + " " + instuct.lastName}</div>
                               <p className='text-center pb-8'>{instuct.description}</p>
                               <div className='flex w-3/4 justify-between'>
-                                <a target="_blank" rel="noreferrer" href={"mailto:"+instuct.email}><div className="rounded-[50%] w-12 h-12 flex justify-center items-center hover:bg-gradient-to-r from-green-700 via-yellow-600 to-red-600 transition duration-500"><EmailOutlinedIcon fontSize='large' className='text-blue-600 z-50 hover:text-white' /></div></a>
-                                <a target="_blank" rel="noreferrer" href={instuct.telegram}><div className="rounded-[50%] w-12 h-12 flex justify-center items-center hover:bg-blue-600 transition duration-500"><TelegramIcon fontSize='large' className='text-blue-600 z-50 hover:text-white'/></div></a>
-                                <a target="_blank" rel="noreferrer" href={instuct.instagram}><div className="rounded-[50%] w-12 h-12 flex justify-center items-center hover:bg-gradient-to-r from-[#93019a] to-red-600 transition duration-500"><InstagramIcon fontSize='large'className='text-red-500 hover:text-white'/></div></a>
-                                <a target="_blank" rel="noreferrer" href={instuct.linkedin}><div className="rounded-[50%] w-12 h-12 flex justify-center items-center hover:border-4 border-blue-600 transition duration-500"><LinkedInIcon fontSize='large' className='text-[#0077b5]'/></div></a>
+                                {instuct.email && <a target="_blank" rel="noreferrer" href={"mailto:" + instuct.email}><div className="rounded-[50%] w-12 h-12 flex justify-center items-center hover:bg-gradient-to-r from-green-700 via-yellow-600 to-red-600 transition duration-500"><EmailOutlinedIcon fontSize='large' className='text-blue-600 z-50 hover:text-white' /></div></a>}
+                                {instuct.telegram && <a target="_blank" rel="noreferrer" href={instuct.telegram}><div className="rounded-[50%] w-12 h-12 flex justify-center items-center hover:bg-blue-600 transition duration-500"><TelegramIcon fontSize='large' className='text-blue-600 z-50 hover:text-white' /></div></a>}
+                                {instuct.instagram && <a target="_blank" rel="noreferrer" href={instuct.instagram}><div className="rounded-[50%] w-12 h-12 flex justify-center items-center hover:bg-gradient-to-r from-[#93019a] to-red-600 transition duration-500"><InstagramIcon fontSize='large' className='text-red-500 hover:text-white' /></div></a>}
+                                {instuct.linkedin && <a target="_blank" rel="noreferrer" href={instuct.linkedin}><div className="rounded-[50%] w-12 h-12 flex justify-center items-center hover:border-4 border-blue-600 transition duration-500"><LinkedInIcon fontSize='large' className='text-[#0077b5]' /></div></a>}
                               </div>
                             </div>
                           </div>
                         )
-                      )
-                    }
+                        )
+                  }
                 </div>
               </div>
             </div>
             <div className='relative mb-10'>
               <div className='absolute md:pt-10 flex justify-center items-center z-50' style={mystyle}>
                 <button className='m-1 p-2' onClick={scrollLeft}><ArrowBackIcon /></button>
-                <button className='m-1 p-2' onClick={() => setpause(!pause)}>{pause ? <PauseOutlinedIcon /> :<PlayArrowOutlinedIcon />}</button>
+                <button className='m-1 p-2' onClick={() => setpause(!pause)}>{pause ? <PauseOutlinedIcon /> : <PlayArrowOutlinedIcon />}</button>
                 <button className='m-1 p-2' onClick={scrollRight}><ArrowForwardIcon /></button>
               </div>
             </div></div>
