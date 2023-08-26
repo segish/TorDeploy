@@ -65,8 +65,8 @@ const Instructors = () => {
                             </div>
                             <div className="bottom flex flex-col justify-center items-center p-3">
                               <div className="title font-bold py-2">{instuct.firstName + " " + instuct.lastName}</div>
-                              <p className='text-center pb-8'>{instuct.description}</p>
-                              <div className='flex w-3/4 justify-between'>
+                              <p className='text-center pb-8 px-1'>{instuct.description}</p>
+                              <div className='flex w-3/4 justify-center'>
                                 {instuct.email && <a target="_blank" rel="noreferrer" href={"mailto:" + instuct.email}><div className="rounded-[50%] w-12 h-12 flex justify-center items-center hover:bg-gradient-to-r from-green-700 via-yellow-600 to-red-600 transition duration-500"><EmailOutlinedIcon fontSize='large' className='text-blue-600 z-50 hover:text-white' /></div></a>}
                                 {instuct.telegram && <a target="_blank" rel="noreferrer" href={instuct.telegram}><div className="rounded-[50%] w-12 h-12 flex justify-center items-center hover:bg-blue-600 transition duration-500"><TelegramIcon fontSize='large' className='text-blue-600 z-50 hover:text-white' /></div></a>}
                                 {instuct.instagram && <a target="_blank" rel="noreferrer" href={instuct.instagram}><div className="rounded-[50%] w-12 h-12 flex justify-center items-center hover:bg-gradient-to-r from-[#93019a] to-red-600 transition duration-500"><InstagramIcon fontSize='large' className='text-red-500 hover:text-white' /></div></a>}
