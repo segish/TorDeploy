@@ -128,16 +128,52 @@ const getAllbyDate = async (req, res) => {
     const currentUser = await Admin.findById(userInfo.id);
     if (!currentUser) return res.status(403).json("only admin can delete courses!")
     try {
-      const { year, month } = req.query;
-      const createdAt = new Date(`${year}-${month}`);
-      const startMonthDate = new Date(createdAt.getFullYear(), createdAt.getMonth(), 1);
-      const endMonthDate = new Date(createdAt.getFullYear(), createdAt.getMonth() + 1, 1);
-      const data = await User.find({ createdAt: { $gte: startMonthDate, $lt: endMonthDate } });
-      res.json(data.length);
-    } catch (err) {
-      res.status(500).json("somthing went wrong!" + err);
+      const currentYear = new Date().getFullYear();
+
+      const studentData = await User.aggregate([
+        {
+          $match: {
+            createdAt: {
+              $gte: new Date(`${currentYear}-01-01`),
+              $lt: new Date(`${currentYear + 1}-01-01`),
+            },
+          },
+        },
+        {
+          $group: {
+            _id: { $month: '$createdAt' }, // Group by month
+            count: { $sum: 1 }, // Count the number of students
+          },
+        },
+        { $sort: { _id: 1 } }, // Sort by month
+      ]);
+      res.json(studentData);
+    } catch (error) {
+      res.status(500).json({ error: 'Internal server error' });
     }
   })
 }
+
+// const getAllbyDate = async (req, res) => {
+//   const token = req.cookies.accessToken;
+//   if (!token) return res.status(401).json("You must login first!");
+
+//   jwt.verify(token, process.env.JWT_SECRETE_KEY, async (err, userInfo) => {
+//     if (err) return res.status(403).json("Token is not valid!");
+
+//     const currentUser = await Admin.findById(userInfo.id);
+//     if (!currentUser) return res.status(403).json("only admin can delete courses!")
+//     try {
+//       const { year, month } = req.query;
+//       const createdAt = new Date(`${year}-${month}`);
+//       const startMonthDate = new Date(createdAt.getFullYear(), createdAt.getMonth(), 1);
+//       const endMonthDate = new Date(createdAt.getFullYear(), createdAt.getMonth() + 1, 1);
+//       const data = await User.find({ createdAt: { $gte: startMonthDate, $lt: endMonthDate } });
+//       res.json(data.length);
+//     } catch (err) {
+//       res.status(500).json("somthing went wrong!" + err);
+//     }
+//   })
+// }
 
 module.exports = { addUser, updateUser, deleteUser, getAll, getById, getAllbyDate };

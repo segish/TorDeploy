@@ -1,11 +1,12 @@
-import { DataGrid } from '@mui/x-data-grid';
+import { DataGrid, GridToolbar } from '@mui/x-data-grid';
+import Box from '@mui/material/Box';
 import { Link } from 'react-router-dom';
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { makeRequest } from '../axios';
 import Popup from './Popup';
-import ConfirmationPopup from './ConfirmationPopup'; 
+import ConfirmationPopup from './ConfirmationPopup';
 
 
 const Datatable = () => {
@@ -64,7 +65,32 @@ const Datatable = () => {
     { field: 'username', headerName: 'Username', width: 170, },
     { field: 'fullName', headerName: 'Full name', description: 'This column has a value getter and is not sortable.', sortable: false, width: 160, valueGetter: (params) => `${params.row.firstName || ''} ${params.row.lastName || ''}`, },
   ]
+  let [count, setCount] = useState(true);
+  const whiteText = () => {
+    var buttomelementsicon = document.querySelectorAll('.MuiInputBase-input.MuiInput-input.MuiInputBase-inputTypeSearch')
+    for (var j = 0; j < buttomelementsicon.length; j++) {
+      buttomelementsicon[j].classList.add('dark:text-white');
+      setCount(false);
+    }
+    var Rowsperpage = document.querySelectorAll('.MuiToolbar-root.MuiToolbar-gutters.MuiToolbar-regular.MuiTablePagination-toolbar')
+    for (var i = 0; i < Rowsperpage.length; i++) {
+      Rowsperpage[i].classList.add('dark:text-white');
+      setCount(false);
+    }
+    var Rowsperpageicon = document.querySelectorAll('.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.MuiSelect-icon.MuiTablePagination-selectIcon')
+    for (var k = 0; k < Rowsperpageicon.length; k++) {
+      Rowsperpageicon[k].classList.add('dark:text-white');
+      setCount(false);
+    }
+  }
 
+  useEffect(() => {
+    const interval = setInterval(count && whiteText, 100);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [count]);
 
   const actionColumn = [{
     field: "action", headerName: "Action", width: 200, sortable: false, renderCell: (params) => {
@@ -83,18 +109,21 @@ const Datatable = () => {
       <div className='overflow-auto w-full flex flex-col dark:border-orange-600'>
         {
           isLoading ? <div className='custom-loader self-center mt-28'></div>
-            : <DataGrid
-              rows={data || []}
-              columns={Usercolumns.concat(actionColumn)}
-              initialState={{
-                pagination: {
-                  paginationModel: { page: 0, pageSize: 9 },
-                },
-              }}
-              pageSizeOptions={[5, 10]}
-              checkboxSelection
-              getRowId={row => row._id}
-              className='dark:text-gray-400' />
+            : <Box sx={{ height: 500, width: 1, }} >
+              <DataGrid
+                rows={data || []}
+                columns={Usercolumns.concat(actionColumn)}
+                slots={{ toolbar: GridToolbar }}
+                slotProps={{
+                  toolbar: {
+                    showQuickFilter: true,
+                    style: { color: "red" },
+                  },
+                }}
+                checkboxSelection
+                getRowId={row => row._id}
+                className='dark:text-gray-400' />
+            </Box>
         }
       </div>
 

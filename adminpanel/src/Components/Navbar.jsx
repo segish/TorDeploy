@@ -1,6 +1,6 @@
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import MenuItems from './MenuItems';
 import CloseIcon from '@mui/icons-material/Close';
@@ -8,12 +8,10 @@ import LightModeIcon from '@mui/icons-material/LightMode';
 import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
 import { FaBookMedical } from 'react-icons/fa';
-
+import GroupAddIcon from '@mui/icons-material/GroupAdd';
 
 const Navbar = () => {
     const [active, setActive] = useState(false);
-
-    const location = useLocation();
 
     const [theme, setTheme] = useState("light");
 
@@ -41,10 +39,6 @@ const Navbar = () => {
         setActive(!active)
     }
 
-    const addcourse = location.pathname === '/courses/new';
-    const addstudent = location.pathname === '/students/newstudent';
-    const addinstruct = location.pathname === '/instructors/new';
-
     return (
         <>
             <div className="sticky z-[10000000] top-0 flex border-b-2 dark:border-orange-600 w-full">
@@ -64,28 +58,28 @@ const Navbar = () => {
                             </Link>
                         </div>
                         <div className="hidden p-2 cursor-pointer items-center hover:rounded-lg hover:text-orange-600 hover:border-orange-600 hover:border-2 gap-2 sm:flex">
-                            <NavLink to="/students/newstudent" className='flex gap-3 items-center' activeStyle={{ color: 'orange' }}>
+                            <NavLink to="/students/newstudent" className={({ isActive }) => `flex text-lg gap-3 items-center ${isActive ? ' text-yellow-400' : ''}`}>
                                 <div className="p-1">
                                     <PersonAddIcon className='text-zinc-500' />
                                 </div>
-                                <span className={`hidden md:flex ${addstudent ? 'text-yellow-400' : ''}`}>Add students</span>
+                                <span className={`hidden md:flex`}>Add students</span>
                             </NavLink>
                         </div>
                         <div className="hidden p-2 cursor-pointer items-center hover:rounded-lg hover:text-orange-600 hover:border-orange-600 hover:border-2 gap-2 sm:flex">
-                            <Link to="/courses/new" className='flex gap-3 items-center'>
+                            <NavLink to="/courses/new" className={({ isActive }) => `flex text-lg gap-3 items-center ${isActive ? ' text-yellow-400' : ''}`}>
                                 <div className="p-1">
                                     <FaBookMedical fontSize='larger' className='text-zinc-500' />
                                 </div>
-                                <span className={`hidden md:flex ${addcourse ? 'text-yellow-400' : ''}`}>Add Course</span>
-                            </Link>
+                                <span className={`hidden md:flex`}>Add Course</span>
+                            </NavLink>
                         </div>
                         <div className=" hidden cursor-pointer items-center hover:rounded-lg hover:text-orange-600 hover:border-orange-600 hover:border-2 gap-2 p-1 sm:flex">
-                            <Link to="/instructors/new" className='flex gap-3 items-center'>
+                            <NavLink to="/instructors/new" className={({ isActive }) => `flex text-lg gap-3 items-center ${isActive ? ' text-yellow-400' : ''}`}>
                                 <div className="p-1">
-                                    <PersonAddIcon className='text-zinc-500' />
+                                    <GroupAddIcon className='text-zinc-500' />
                                 </div>
-                                <span className={`hidden md:flex ${addinstruct ? 'text-yellow-400' : ''}`}>Add Community</span>
-                            </Link>
+                                <span className={`hidden md:flex`}>Add Community</span>
+                            </NavLink>
                         </div>
                         <div className="cursor-pointer hover:rounded-lg hover:text-orange-600 gap-4 flex">
                             <button className=" p-3 cursor-pointer hover:rounded-lg  text-black hover:text- dark:text-gray-200 "
