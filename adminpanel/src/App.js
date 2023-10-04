@@ -88,7 +88,7 @@ function App() {
           element: <Courseslist />
         },
         {
-          path: "/courses",
+          path: "/chapters",
           element: <Chapters />
         },
         {
@@ -100,7 +100,7 @@ function App() {
           element: <InstructorList/>
         },
         {
-          path: "/instructors",
+          path: "/instructor",
           element: <SingleInstructors/>
         },
         {
