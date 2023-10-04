@@ -49,7 +49,7 @@ const login = async (req, res) => {
 
         res.cookie("accessToken", token, {
             expires: new Date(Date.now() + 1000 * 60 * 1440),  //to expire after 30 minutes
-            httpOnly: true,
+            //httpOnly: true,
         }).status(200).json(others);
     } catch (err) {
         res.status(500).json("somthing went wrong!")
@@ -59,8 +59,8 @@ const login = async (req, res) => {
 //logout
 const logout = (req, res) => {
     res.clearCookie("accessToken", {
-        secure: true,
-        sameSite: "none"
+        //secure: true,
+        //sameSite: "none"
     }).status(200).json("user has been loged out")
 }
 
