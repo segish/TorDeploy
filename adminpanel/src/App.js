@@ -76,7 +76,7 @@ function App() {
           element: <List />
         },
         {
-          path: "/students",
+          path: "/student",
           element: <SingleStudents />
         },
         {
