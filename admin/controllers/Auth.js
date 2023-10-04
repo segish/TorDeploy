@@ -49,7 +49,7 @@ const login = async (req, res) => {
 
         res.cookie("accessToken", token, {
             expires: new Date(Date.now() + 1000 * 60 * 1440),  //to expire after 30 minutes
-            //httpOnly: true,
+            httpOnly: true,
         }).status(200).json(others);
     } catch (err) {
         res.status(500).json("somthing went wrong!")
