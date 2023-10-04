@@ -96,7 +96,7 @@ const Datatable = () => {
     field: "action", headerName: "Action", width: 200, sortable: false, renderCell: (params) => {
       return (
         <div className=" flex items-center gap-3 ">
-          <Link to={'/students?id=' + params.row._id} >
+          <Link to={'/student?id=' + params.row._id} >
             <div className="border-2 rounded-sm text-purple-600 border-purple-600 p-3 pb-1 pt-1 cursor-pointer"><DriveFileRenameOutlineIcon /></div>
           </Link>
           <button className="border-2 rounded-sm text-red-900 border-red-600 p-3 py-1 cursor-pointer" onClick={(e) => showConfirmationPopup(e, params.row._id)}>delete</button>
